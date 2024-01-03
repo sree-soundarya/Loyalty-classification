@@ -15,13 +15,19 @@ We begin by establishing a connection to the Snowflake database using Snowpark P
 
 To kickstart our analysis, we meticulously select Retail Banking data and Customer Transaction data. These datasets form the foundation for our exploration into customer behavior and loyalty.
 
+#### Banking Spectrum
+
 <img src = "images/Account_types.png" > 
+
+#### Credit Score 
 
 <img src = "images/credit_score.png" > 
 
 ### Data Preparation
 
 We embark on a process of cleaning and preparing the data, ensuring it's suitable for analysis. This step includes handling missing values, standardizing formats, merging various account data of each customer with transaction data, creating a comprehensive dataset of the customer's banking interactions.
+
+#### A Strategic Exploration of Transaction Amount Trends
 
 <img src = "images/Transaction_amount_trend.png" >
 
@@ -30,9 +36,13 @@ We embark on a process of cleaning and preparing the data, ensuring it's suitabl
 
 Utilizing Snowflake Snowpark Python, we implement a robust loyalty classification algorithm. This algorithm assesses customer behavior, identifying patterns that help categorize customers into loyalty segments.
 
+#### Finding the Pinnacle with KMeans Elbow Chart
+
 <img src = "images/Elbow_chart.png" > 
 
 we employ a KMeans Clustering model to perform loyalty classification. To identify the optimal number of clusters, we evaluate inertias and leverage the elbow curve. The subsequent application of KMeans clustering unveils distinct customer segments based on their behaviors and interactions with the bank.
+
+#### Customer Classification in the Digital Landscape
 
 <img src = "images/customer_segmentation.png" > 
 
@@ -40,6 +50,8 @@ we employ a KMeans Clustering model to perform loyalty classification. To identi
 ### RFM Analysis
 
 Taking our analysis a step further, we meticulously evaluate the Recency, Frequency, and Monetary aspects of customer transactions. This analysis not only provides a snapshot of current customer engagement but also serves as a foundation for personalized and effective customer engagement strategies.
+
+#### Unmasking Customer Scores in a KPI
 
 <img src = "images/RFM_score.png" > 
 
@@ -52,6 +64,8 @@ To make the results accessible and actionable, we leverage ThoughtSpot for visua
 The results of this analysis provide comprehensive insights into customer behavior, enabling data-driven decision-making for marketing, engagement, and loyalty strategies. The visualizations in ThoughtSpot enhance the interpretability of the findings, making it accessible for various stakeholders.
 
 With SpotIQ change analysis, we can compare any two data points in a visualization for change and identify key change drivers from the underlying attribute columns. 
+
+#### SpotIQ Magic
 
 <img src = "images/Change_analysis.png" > 
 
