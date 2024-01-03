@@ -15,33 +15,33 @@ We begin by establishing a connection to the Snowflake database using Snowpark P
 
 To kickstart our analysis, we meticulously select Retail Banking data and Customer Transaction data. These datasets form the foundation for our exploration into customer behavior and loyalty.
 
-<img src = "images/customer_interactions_forecast.png" > account types
+<img src = "images/Account_types.png" > 
 
-<img src = "images/customer_interactions_forecast.png" > credit score
+<img src = "images/credit_score.png" > 
 
 ### Data Preparation
 
 We embark on a process of cleaning and preparing the data, ensuring it's suitable for analysis. This step includes handling missing values, standardizing formats, merging various account data of each customer with transaction data, creating a comprehensive dataset of the customer's banking interactions.
 
-<img src = "images/customer_interactions_forecast.png" > trans amt trnd
+<img src = "images/Transaction_amount_trend.png" >
 
 
 ### Loyalty Classification
 
 Utilizing Snowflake Snowpark Python, we implement a robust loyalty classification algorithm. This algorithm assesses customer behavior, identifying patterns that help categorize customers into loyalty segments.
 
-<img src = "images/customer_interactions_forecast.png" > elbow
+<img src = "images/Elbow_chart.png" > 
 
 we employ a KMeans Clustering model to perform loyalty classification. To identify the optimal number of clusters, we evaluate inertias and leverage the elbow curve. The subsequent application of KMeans clustering unveils distinct customer segments based on their behaviors and interactions with the bank.
 
-<img src = "images/customer_interactions_forecast.png" > customer seg
+<img src = "images/customer_segmentation.png" > 
 
 
 ### RFM Analysis
 
 Taking our analysis a step further, we meticulously evaluate the Recency, Frequency, and Monetary aspects of customer transactions. This analysis not only provides a snapshot of current customer engagement but also serves as a foundation for personalized and effective customer engagement strategies.
 
-<img src = "images/customer_interactions_forecast.png" > rfm score
+<img src = "images/RFM_score.png" > 
 
 ### Visualization with ThoughtSpot
 
@@ -53,14 +53,10 @@ The results of this analysis provide comprehensive insights into customer behavi
 
 With SpotIQ change analysis, we can compare any two data points in a visualization for change and identify key change drivers from the underlying attribute columns. 
 
-<img src = "images/customer_interactions_forecast.png" > chnge
-
-### Loyalty Classification Distribution
-
-![Loyalty Distribution](path/to/loyalty_distribution_chart.png)
+<img src = "images/Change_analysis.png" > 
 
 
-For a detailed guide on executing the analysis and reproducing the results, please refer to the code and documentation in this repository.
+**For a detailed guide on executing the analysis and reproducing the results, please refer to the code and documentation in this repository.**
 
 ## Guide to use .tml files
 For step-by-step instructions on how to import .tml files into your ThoughtSpot cluster please refer [How to use TML files](https://docs.thoughtspot.com/cloud/latest/scriptability#_how_to_use_tml_files)
