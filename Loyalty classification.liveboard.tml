@@ -1,0 +1,1056 @@
+guid: 386d8d7f-3812-409a-a859-c6705a20ba3f
+liveboard:
+  name: Loyalty classification
+  visualizations:
+  - id: Viz_1
+    answer:
+      name: Transaction Count vs. Customer Distribution
+      description: Chart illustrates the distribution of customers based on the frequency of their transactions
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      formulas:
+      - id: frequency_str
+        name: frequency_str
+        expr: "to_string ( [Frequency] )"
+        was_auto_generated: false
+      search_query: "count [Customer Id] [frequency_str]"
+      answer_columns:
+      - name: Number of Customer Id
+      - name: frequency_str
+      table:
+        table_columns:
+        - column_id: frequency_str
+          show_headline: false
+        - column_id: Number of Customer Id
+          show_headline: false
+        ordered_column_ids:
+        - frequency_str
+        - Number of Customer Id
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: COLUMN
+        chart_columns:
+        - column_id: frequency_str
+        - column_id: Number of Customer Id
+        axis_configs:
+        - x:
+          - frequency_str
+          "y":
+          - Number of Customer Id
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"frequency_str\",\"columnProperty\": {}},{\"columnId\": \"Number of Customer Id\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"8185de82-e2d0-4587-9eda-021804d20fed\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"frequency_str\"],\"name\": \"Transaction Frequency\"}},{\"id\": \"d0e1d929-a423-4b39-b184-3a9396349b49\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Number of Customer Id\"],\"name\": \"Customer Count\",\"isOpposite\": false}}],\"systemSeriesColors\": [{\"serieName\": \"Number of Customer Id\",\"color\": \"#FCC838\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 5d8335ea-5c5f-4701-9191-4cadc6090c32
+  - id: Viz_2
+    answer:
+      name: Customer Gender & Segment Distribution
+      description: Chart illustrates the count for female and male customers categorised by customer segments
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "[Customer Segment] count [Customer Name] [Gender].male vs [Gender].female sort by [Customer Segment] descending"
+      answer_columns:
+      - name: Total Count Customer Name(male)
+      - name: Customer Segment
+      - name: Total Count Customer Name(female)
+      table:
+        table_columns:
+        - column_id: Customer Segment
+          show_headline: false
+        - column_id: Total Count Customer Name(male)
+          show_headline: false
+        - column_id: Total Count Customer Name(female)
+          show_headline: false
+        ordered_column_ids:
+        - Customer Segment
+        - Total Count Customer Name(male)
+        - Total Count Customer Name(female)
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: COLUMN
+        chart_columns:
+        - column_id: Customer Segment
+        - column_id: Total Count Customer Name(male)
+        - column_id: Total Count Customer Name(female)
+        axis_configs:
+        - x:
+          - Customer Segment
+          "y":
+          - Total Count Customer Name(female)
+          - Total Count Customer Name(male)
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"visibleSeriesNames\": [\"Total Count Customer Name(male)\",\"Total Count Customer Name(female)\"],\"gridLines\": {\"xGridlineEnabled\": true,\"yGridlineEnabled\": false},\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true,\"legendPosition\": \"BOTTOM_LEGEND\"},\"columnProperties\": [{\"columnId\": \"Customer Segment\",\"columnProperty\": {}},{\"columnId\": \"Total Count Customer Name(male)\",\"columnProperty\": {\"dataLabels\": true}},{\"columnId\": \"Total Count Customer Name(female)\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"c554f43c-d66e-4ebc-bde0-d7fd97ce5fd7\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Customer Segment\"]}},{\"id\": \"8232d339-5033-4015-9b4b-1c8925fbad6d\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Count Customer Name(female)\",\"Total Count Customer Name(male)\"],\"name\": \"Total Count of Customer( female) & Total Count of Customer (male)\",\"isOpposite\": false}}],\"seriesColors\": [{\"serieName\": \"Total Count Customer Name(male)\",\"color\": \"#48D1E0\"},{\"serieName\": \"Total Count Customer Name(female)\",\"color\": \"#FFC0CB\"}],\"systemSeriesColors\": [{\"serieName\": \"Total Count Customer Name(male)\",\"color\": \"#48D1E0\"},{\"serieName\": \"Total Count Customer Name(female)\",\"color\": \"#369faa\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 78ea6699-9f03-4ef0-9b4f-e82cf43d7ef7
+  - id: Viz_3
+    answer:
+      name: Customer Age Group & Segment Distribution
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "[Customer Segment] count [Customer Name] [Age Group]"
+      answer_columns:
+      - name: Customer Segment
+      - name: Number of Customer Name
+      - name: Age Group
+      table:
+        table_columns:
+        - column_id: Customer Segment
+          show_headline: false
+        - column_id: Age Group
+          show_headline: false
+        - column_id: Number of Customer Name
+          show_headline: false
+        ordered_column_ids:
+        - Customer Segment
+        - Age Group
+        - Number of Customer Name
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: COLUMN
+        chart_columns:
+        - column_id: Customer Segment
+        - column_id: Age Group
+        - column_id: Number of Customer Name
+        axis_configs:
+        - x:
+          - Customer Segment
+          "y":
+          - Number of Customer Name
+          color:
+          - Age Group
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"gridLines\": {\"xGridlineEnabled\": true,\"yGridlineEnabled\": false},\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true,\"legendPosition\": \"BOTTOM_LEGEND\"},\"columnProperties\": [{\"columnId\": \"Customer Segment\",\"columnProperty\": {\"dataLabels\": true}},{\"columnId\": \"Age Group\",\"columnProperty\": {\"dataLabels\": true}},{\"columnId\": \"Number of Customer Name\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"e74d9c77-837c-469d-baa7-f8014726ae52\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Customer Segment\"]}},{\"id\": \"34e0e871-e3a3-4a7f-b716-9063a8ff74ef\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Number of Customer Name\"],\"name\": \"Count of Customers\",\"isOpposite\": false}}],\"seriesColors\": [{\"serieName\": \"00aafa9d-43ad-5efd-971b-d3d464daa93d\",\"color\": \"#48D1E0\"},{\"serieName\": \"7bc14225-bd60-5538-a0e4-170f65253233\",\"color\": \"#FFC0CB\"}],\"systemSeriesColors\": [{\"serieName\": \"00aafa9d-43ad-5efd-971b-d3d464daa93d\",\"color\": \"#48D1E0\"},{\"serieName\": \"7bc14225-bd60-5538-a0e4-170f65253233\",\"color\": \"#FFC0CB\"},{\"serieName\": \"high value customer\",\"color\": \"#06BF7F\"},{\"serieName\": \"low value customers\",\"color\": \"#FCC838\"},{\"serieName\": \"medium value customer\",\"color\": \"#48D1E0\"},{\"serieName\": \"top customers\",\"color\": \"#369faa\"},{\"serieName\": \" 18-24\",\"color\": \"#06BF7F\"},{\"serieName\": \" 25-34\",\"color\": \"#FCC838\"},{\"serieName\": \" 35-44\",\"color\": \"#82DFE9\"},{\"serieName\": \" 45-54\",\"color\": \"#48D1E0\"},{\"serieName\": \" 55-64\",\"color\": \"#5eb2bb\"},{\"serieName\": \" 65+\",\"color\": \"#369faa\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 60201de3-9145-43e9-8174-1f8d90c2867a
+  - id: Viz_4
+    answer:
+      name: "RFM Analysis Chart: Recency, Frequency, and Monetary."
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      formulas:
+      - id: frequency String
+        name: frequency String
+        expr: "to_string ( [Frequency] ) "
+        was_auto_generated: false
+      search_query: "[Recency] [Monetary] [frequency String]"
+      answer_columns:
+      - name: Total Recency
+      - name: Total Monetary
+      - name: frequency String
+      table:
+        table_columns:
+        - column_id: frequency String
+          show_headline: false
+        - column_id: Total Recency
+          show_headline: false
+        - column_id: Total Monetary
+          show_headline: false
+        ordered_column_ids:
+        - frequency String
+        - Total Recency
+        - Total Monetary
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: AREA
+        chart_columns:
+        - column_id: frequency String
+        - column_id: Total Recency
+        - column_id: Total Monetary
+        axis_configs:
+        - x:
+          - frequency String
+          "y":
+          - Total Monetary
+          - Total Recency
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true,\"legendPosition\": \"BOTTOM_LEGEND\"},\"columnProperties\": [{\"columnId\": \"frequency String\",\"columnProperty\": {}},{\"columnId\": \"Total Recency\",\"columnProperty\": {\"dataLabels\": true}},{\"columnId\": \"Total Monetary\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"5fb67665-5244-4f53-b8c4-b88cbd0e432f\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"frequency String\"],\"name\": \"Frequency\"}},{\"id\": \"408c13f0-e9ba-48ae-8ce7-472a895ffaf5\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Recency\"],\"name\": \"Recency\",\"isOpposite\": true}},{\"id\": \"0808038d-5a14-4759-9586-6badecdb16c8\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Monetary\"],\"name\": \"Monetary\",\"isOpposite\": false}}],\"seriesColors\": [{\"serieName\": \"Total Monetary\",\"color\": \"#48d1e0\"},{\"serieName\": \"total monetary\",\"color\": \"#369faa\"},{\"serieName\": \"total recency\",\"color\": \"#369faa\"},{\"serieName\": \"Total Recency\",\"color\": \"#06BF7F\"}],\"systemSeriesColors\": [{\"serieName\": \"Total Monetary\",\"color\": \"#48d1e0\"},{\"serieName\": \"Total Recency\",\"color\": \"#48D1E0\"},{\"serieName\": \"total monetary\",\"color\": \"#369faa\"},{\"serieName\": \"total recency\",\"color\": \"#369faa\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: e0ac54c3-7bf6-411e-bcb8-6c7bb8119ef1
+  - id: Viz_5
+    answer:
+      name: Transaction Amount Trend
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      formulas:
+      - id: frequency String
+        name: frequency String
+        expr: "to_string ( [Frequency] ) "
+        was_auto_generated: false
+      search_query: "[Transactionamount] [Date] [Date].daily"
+      answer_columns:
+      - name: Total Transactionamount
+      - name: Day(Date)
+      table:
+        table_columns:
+        - column_id: Day(Date)
+          show_headline: false
+        - column_id: Total Transactionamount
+          show_headline: false
+        ordered_column_ids:
+        - Day(Date)
+        - Total Transactionamount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: LINE
+        chart_columns:
+        - column_id: Day(Date)
+        - column_id: Total Transactionamount
+        axis_configs:
+        - x:
+          - Day(Date)
+          "y":
+          - Total Transactionamount
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"gridLines\": {\"xGridlineEnabled\": false,\"yGridlineEnabled\": false},\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"markersEnabled\": true,\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Total Transactionamount\",\"columnProperty\": {\"dataLabels\": true}},{\"columnId\": \"Day(Date)\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"c37c01d4-1e74-49bf-8e99-e343d11ff978\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Transactionamount\"],\"isOpposite\": false}},{\"id\": \"9e26b1da-57a7-4c76-a68d-441a7211e815\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Day(Date)\"],\"name\": \"Date\"}}],\"systemSeriesColors\": [{\"serieName\": \"Total Transactionamount\",\"color\": \"#8C62F5\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 9f071610-072a-4353-a92a-fc310c1c0b53
+  - id: Viz_6
+    answer:
+      name: Daily Transaction Count
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      formulas:
+      - id: frequency String
+        name: frequency String
+        expr: "to_string ( [Frequency] ) "
+        was_auto_generated: false
+      search_query: "count [Transactionamount] [Date] [Date].daily"
+      answer_columns:
+      - name: Number of Transactionamount
+      - name: Day(Date)
+      table:
+        table_columns:
+        - column_id: Day(Date)
+          show_headline: false
+        - column_id: Number of Transactionamount
+          show_headline: false
+        ordered_column_ids:
+        - Day(Date)
+        - Number of Transactionamount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: LINE
+        chart_columns:
+        - column_id: Day(Date)
+        - column_id: Number of Transactionamount
+        axis_configs:
+        - x:
+          - Day(Date)
+          "y":
+          - Number of Transactionamount
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"gridLines\": {\"xGridlineEnabled\": false,\"yGridlineEnabled\": false},\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"markersEnabled\": true,\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Number of Transactionamount\",\"columnProperty\": {\"dataLabels\": true}},{\"columnId\": \"Day(Date)\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"439e8d42-7dc3-4e3f-bcf2-1e33e4d38bf7\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Day(Date)\"],\"name\": \"Date\"}},{\"id\": \"ea9769c7-1fe0-49cf-9a1e-adba4c76c80b\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Number of Transactionamount\"],\"name\": \"Transaction Count\",\"isOpposite\": false}}],\"systemSeriesColors\": [{\"serieName\": \"abfbdcca-b718-4c2e-a3fd-3a737772edab\",\"color\": \"#8C62F5\"},{\"serieName\": \"66cf6fce-071a-44d0-ac8f-30e52c907d6e\",\"color\": \"#FCC838\"},{\"serieName\": \"Number of Transactionamount\",\"color\": \"#369faa\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: fbe78c22-961a-4e71-a513-b2919d272ad0
+  - id: Viz_7
+    answer:
+      name: Customer Income Distribution
+      description: "Represents customer income in discrete numerical values such as 10k, 20k, 30k, etc., corresponding to specified income brackets like 0-10k, 10k-20k, 20k-30k, and so on"
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "count [Customer Id] [Income_grp]"
+      answer_columns:
+      - name: Number of Customer Id
+      - name: Income_grp
+      table:
+        table_columns:
+        - column_id: Income_grp
+          show_headline: false
+        - column_id: Number of Customer Id
+          show_headline: false
+        ordered_column_ids:
+        - Income_grp
+        - Number of Customer Id
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: COLUMN
+        chart_columns:
+        - column_id: Income_grp
+        - column_id: Number of Customer Id
+        axis_configs:
+        - x:
+          - Income_grp
+          "y":
+          - Number of Customer Id
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}}},\"columnProperties\": [{\"columnId\": \"Number of Customer Id\",\"columnProperty\": {}},{\"columnId\": \"Income_grp\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"d0a4cb8f-62cb-4cc8-b344-5b0079c9e1b8\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Income_grp\"],\"name\": \"Income Group\"}},{\"id\": \"ef29d51a-8899-4f3d-b936-3f82c52aadbc\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Number of Customer Id\"],\"name\": \"Number of Customers\",\"isOpposite\": false}}],\"systemSeriesColors\": [{\"serieName\": \"Number of Customer Id\",\"color\": \"#FF8142\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 2f36522d-5e48-4790-b7c9-7231687cbc16
+  - id: Viz_8
+    answer:
+      name: Total Number of Customers
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "count [Customer Id] [Customer Segment]"
+      answer_columns:
+      - name: Number of Customer Id
+      - name: Customer Segment
+      table:
+        table_columns:
+        - column_id: Customer Segment
+          show_headline: false
+        - column_id: Number of Customer Id
+          show_headline: false
+        ordered_column_ids:
+        - Customer Segment
+        - Number of Customer Id
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: KPI
+        chart_columns:
+        - column_id: Customer Segment
+        - column_id: Number of Customer Id
+        axis_configs:
+        - "y":
+          - Number of Customer Id
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotState\": {\"fields\": [{\"dataField\": \"185510c1-f85f-470b-8830-7f0522a4e466\",\"sortBy\": \"value\",\"sortBySummaryField\": \"f8d6f2cc-02be-4f2d-bd88-432ed2a848b2\",\"sortOrder\": \"asc\",\"expanded\": false,\"area\": \"row\"}]},\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Customer Segment\",\"columnProperty\": {}},{\"columnId\": \"Number of Customer Id\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"662a9b60-ba97-4f1d-8a58-212475cd16b9\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Number of Customer Id\"],\"isOpposite\": false}},{\"id\": \"aa694188-0391-4cf0-bebd-856199efccb6\",\"properties\": {\"axisType\": \"X\"}}],\"systemSeriesColors\": [{\"serieName\": \"top customers\",\"color\": \"#06BF7F\"},{\"serieName\": \"high value customer\",\"color\": \"#FCC838\"},{\"serieName\": \"medium value customer\",\"color\": \"#48D1E0\"},{\"serieName\": \"low value customers\",\"color\": \"#369faa\"},{\"serieName\": \"f8d6f2cc-02be-4f2d-bd88-432ed2a848b2\",\"color\": \"#06BF7F\"},{\"serieName\": \"pareto\",\"color\": \"#06BF7F\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 15318439-b675-426b-a202-19a6395c8949
+  - id: Viz_9
+    answer:
+      name: Average Frequency
+      description: Illustrates how often a customer makes a purchase
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "[Customer Segment] average [Frequency]"
+      answer_columns:
+      - name: Customer Segment
+      - name: Average Frequency
+      table:
+        table_columns:
+        - column_id: Customer Segment
+          show_headline: false
+        - column_id: Average Frequency
+          show_headline: false
+        ordered_column_ids:
+        - Customer Segment
+        - Average Frequency
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: KPI
+        chart_columns:
+        - column_id: Customer Segment
+        - column_id: Average Frequency
+        axis_configs:
+        - "y":
+          - Average Frequency
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotState\": {\"fields\": [{\"dataField\": \"185510c1-f85f-470b-8830-7f0522a4e466\",\"sortBy\": \"value\",\"sortBySummaryField\": \"f8d6f2cc-02be-4f2d-bd88-432ed2a848b2\",\"sortOrder\": \"asc\",\"expanded\": false,\"area\": \"row\"}]},\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Customer Segment\",\"columnProperty\": {}},{\"columnId\": \"Average Frequency\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"2977c917-bf1f-4dbc-8c7e-5dda52cbb57e\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Average Frequency\"],\"isOpposite\": false}},{\"id\": \"164e14ea-95ac-4872-a272-83026fe4e093\",\"properties\": {\"axisType\": \"X\"}}],\"systemSeriesColors\": [{\"serieName\": \"top customers\",\"color\": \"#06BF7F\"},{\"serieName\": \"high value customer\",\"color\": \"#FCC838\"},{\"serieName\": \"medium value customer\",\"color\": \"#48D1E0\"},{\"serieName\": \"low value customers\",\"color\": \"#369faa\"},{\"serieName\": \"f8d6f2cc-02be-4f2d-bd88-432ed2a848b2\",\"color\": \"#06BF7F\"},{\"serieName\": \"pareto\",\"color\": \"#06BF7F\"},{\"serieName\": \"Average Frequency\",\"color\": \"#06BF7F\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: e25f8bb8-95b9-4f12-a81b-9402c07b2f03
+  - id: Viz_10
+    answer:
+      name: Distribution of Customers by Gender
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "[Gender] count [Customer Id]"
+      answer_columns:
+      - name: Gender
+      - name: Number of Customer Id
+      table:
+        table_columns:
+        - column_id: Gender
+          show_headline: false
+        - column_id: Number of Customer Id
+          show_headline: false
+        ordered_column_ids:
+        - Gender
+        - Number of Customer Id
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: PIE
+        chart_columns:
+        - column_id: Gender
+        - column_id: Number of Customer Id
+        axis_configs:
+        - x:
+          - Gender
+          "y":
+          - Number of Customer Id
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotState\": {\"fields\": [{\"dataField\": \"185510c1-f85f-470b-8830-7f0522a4e466\",\"sortBy\": \"value\",\"sortBySummaryField\": \"f8d6f2cc-02be-4f2d-bd88-432ed2a848b2\",\"sortOrder\": \"asc\",\"expanded\": false,\"area\": \"row\"}]},\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Gender\",\"columnProperty\": {}},{\"columnId\": \"Number of Customer Id\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"25a53e25-0098-4375-94e6-0495b08559ba\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Gender\"]}},{\"id\": \"74024dd5-f559-4dc8-a55b-8b156e2d9f6e\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Number of Customer Id\"],\"name\": \"Number of Customers\",\"isOpposite\": false}}],\"seriesColors\": [{\"serieName\": \"top customers\",\"color\": \"#06BF7F\"},{\"serieName\": \"high value customer\",\"color\": \"#FCC838\"},{\"serieName\": \"medium value customer\",\"color\": \"#48D1E0\"},{\"serieName\": \"low value customers\",\"color\": \"#369faa\"},{\"serieName\": \"f8d6f2cc-02be-4f2d-bd88-432ed2a848b2\",\"color\": \"#06BF7F\"},{\"serieName\": \"pareto\",\"color\": \"#06BF7F\"},{\"serieName\": \"049725a0-138b-49a9-981e-2fa145eb55a8\",\"color\": \"#06BF7F\"},{\"serieName\": \"Number of Customer Id\",\"color\": \"#48D1E0\"}],\"systemSeriesColors\": [{\"serieName\": \"top customers\",\"color\": \"#06BF7F\"},{\"serieName\": \"high value customer\",\"color\": \"#FCC838\"},{\"serieName\": \"medium value customer\",\"color\": \"#48D1E0\"},{\"serieName\": \"low value customers\",\"color\": \"#369faa\"},{\"serieName\": \"f8d6f2cc-02be-4f2d-bd88-432ed2a848b2\",\"color\": \"#06BF7F\"},{\"serieName\": \"pareto\",\"color\": \"#06BF7F\"},{\"serieName\": \"049725a0-138b-49a9-981e-2fa145eb55a8\",\"color\": \"#06BF7F\"},{\"serieName\": \"Number of Customer Id\",\"color\": \"#48D1E0\"},{\"serieName\": \"female\",\"color\": \"#48D1E0\"},{\"serieName\": \"male\",\"color\": \"#369faa\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 499dd2c8-d56e-4752-b4ef-e3fc480d8548
+  - id: Viz_11
+    answer:
+      name: Distribution of Customers by Region
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "count [Customer Id] [Region]"
+      answer_columns:
+      - name: Number of Customer Id
+      - name: Region
+      table:
+        table_columns:
+        - column_id: Region
+          show_headline: false
+        - column_id: Number of Customer Id
+          show_headline: false
+        ordered_column_ids:
+        - Region
+        - Number of Customer Id
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: BAR
+        chart_columns:
+        - column_id: Region
+        - column_id: Number of Customer Id
+        axis_configs:
+        - x:
+          - Region
+          "y":
+          - Number of Customer Id
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotState\": {\"fields\": [{\"dataField\": \"185510c1-f85f-470b-8830-7f0522a4e466\",\"sortBy\": \"value\",\"sortBySummaryField\": \"f8d6f2cc-02be-4f2d-bd88-432ed2a848b2\",\"sortOrder\": \"asc\",\"expanded\": false,\"area\": \"row\"}]},\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Region\",\"columnProperty\": {}},{\"columnId\": \"Number of Customer Id\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"c191515d-7306-4ea2-8be2-b3808cdb8140\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Number of Customer Id\"],\"isOpposite\": false}},{\"id\": \"1b1352a9-579b-43a0-94b4-1d36d97033fa\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Region\"]}}],\"seriesColors\": [{\"serieName\": \"top customers\",\"color\": \"#06BF7F\"},{\"serieName\": \"high value customer\",\"color\": \"#FCC838\"},{\"serieName\": \"medium value customer\",\"color\": \"#48D1E0\"},{\"serieName\": \"low value customers\",\"color\": \"#369faa\"},{\"serieName\": \"f8d6f2cc-02be-4f2d-bd88-432ed2a848b2\",\"color\": \"#06BF7F\"},{\"serieName\": \"pareto\",\"color\": \"#06BF7F\"},{\"serieName\": \"049725a0-138b-49a9-981e-2fa145eb55a8\",\"color\": \"#06BF7F\"},{\"serieName\": \"Number of Customer Id\",\"color\": \"#06BF7F\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: ce52149d-b9d9-4c00-ad1f-16eaa1e2e4c9
+  - id: Viz_12
+    answer:
+      name: Distribution of Customers by Age Group
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "count [Customer Id] [Age Group]"
+      answer_columns:
+      - name: Number of Customer Id
+      - name: Age Group
+      table:
+        table_columns:
+        - column_id: Age Group
+          show_headline: false
+        - column_id: Number of Customer Id
+          show_headline: false
+        ordered_column_ids:
+        - Age Group
+        - Number of Customer Id
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: COLUMN
+        chart_columns:
+        - column_id: Age Group
+        - column_id: Number of Customer Id
+        axis_configs:
+        - x:
+          - Age Group
+          "y":
+          - Number of Customer Id
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotState\": {\"fields\": [{\"dataField\": \"185510c1-f85f-470b-8830-7f0522a4e466\",\"sortBy\": \"value\",\"sortBySummaryField\": \"f8d6f2cc-02be-4f2d-bd88-432ed2a848b2\",\"sortOrder\": \"asc\",\"expanded\": false,\"area\": \"row\"}]},\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Age Group\",\"columnProperty\": {}},{\"columnId\": \"Number of Customer Id\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"ecf8242a-f195-49a5-8980-648c96d855e6\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Age Group\"]}},{\"id\": \"91d3aa84-9ff6-4079-959d-3bad58a06efb\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Number of Customer Id\"],\"name\": \"Number of Customers\",\"isOpposite\": false}}],\"seriesColors\": [{\"serieName\": \"top customers\",\"color\": \"#06BF7F\"},{\"serieName\": \"high value customer\",\"color\": \"#FCC838\"},{\"serieName\": \"medium value customer\",\"color\": \"#48D1E0\"},{\"serieName\": \"low value customers\",\"color\": \"#369faa\"},{\"serieName\": \"f8d6f2cc-02be-4f2d-bd88-432ed2a848b2\",\"color\": \"#06BF7F\"},{\"serieName\": \"pareto\",\"color\": \"#06BF7F\"},{\"serieName\": \"049725a0-138b-49a9-981e-2fa145eb55a8\",\"color\": \"#06BF7F\"},{\"serieName\": \"Number of Customer Id\",\"color\": \"#48D1E0\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: fd39709e-b245-4d9e-bf87-5c76ced02906
+  - id: Viz_13
+    answer:
+      name: Distribution of Customers by Income
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "count [Customer Id] [Income_grp]"
+      answer_columns:
+      - name: Number of Customer Id
+      - name: Income_grp
+      table:
+        table_columns:
+        - column_id: Income_grp
+          show_headline: false
+        - column_id: Number of Customer Id
+          show_headline: false
+        ordered_column_ids:
+        - Income_grp
+        - Number of Customer Id
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: COLUMN
+        chart_columns:
+        - column_id: Income_grp
+        - column_id: Number of Customer Id
+        axis_configs:
+        - x:
+          - Income_grp
+          "y":
+          - Number of Customer Id
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotState\": {\"fields\": [{\"dataField\": \"185510c1-f85f-470b-8830-7f0522a4e466\",\"sortBy\": \"value\",\"sortBySummaryField\": \"f8d6f2cc-02be-4f2d-bd88-432ed2a848b2\",\"sortOrder\": \"asc\",\"expanded\": false,\"area\": \"row\"}]},\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Income_grp\",\"columnProperty\": {}},{\"columnId\": \"Number of Customer Id\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"931a209b-7e26-4910-900c-f80898d24534\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Income_grp\"],\"name\": \"Income Group\"}},{\"id\": \"bf47eeb7-959f-419f-8cd9-d8fd334eef15\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Number of Customer Id\"],\"name\": \"Number of Customers\",\"isOpposite\": false}}],\"seriesColors\": [{\"serieName\": \"top customers\",\"color\": \"#06BF7F\"},{\"serieName\": \"high value customer\",\"color\": \"#FCC838\"},{\"serieName\": \"medium value customer\",\"color\": \"#48D1E0\"},{\"serieName\": \"low value customers\",\"color\": \"#369faa\"},{\"serieName\": \"f8d6f2cc-02be-4f2d-bd88-432ed2a848b2\",\"color\": \"#06BF7F\"},{\"serieName\": \"pareto\",\"color\": \"#06BF7F\"},{\"serieName\": \"049725a0-138b-49a9-981e-2fa145eb55a8\",\"color\": \"#06BF7F\"},{\"serieName\": \"Number of Customer Id\",\"color\": \"#FCD977\"}],\"systemSeriesColors\": [{\"serieName\": \"top customers\",\"color\": \"#06BF7F\"},{\"serieName\": \"high value customer\",\"color\": \"#FCC838\"},{\"serieName\": \"medium value customer\",\"color\": \"#48D1E0\"},{\"serieName\": \"low value customers\",\"color\": \"#369faa\"},{\"serieName\": \"f8d6f2cc-02be-4f2d-bd88-432ed2a848b2\",\"color\": \"#06BF7F\"},{\"serieName\": \"pareto\",\"color\": \"#06BF7F\"},{\"serieName\": \"049725a0-138b-49a9-981e-2fa145eb55a8\",\"color\": \"#06BF7F\"},{\"serieName\": \"Number of Customer Id\",\"color\": \"#06BF7F\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: d3c8d753-f39b-4e00-8e3c-ec9c6eb81d40
+  - id: Viz_14
+    answer:
+      name: Average RFM Score
+      description: "Illustrates the mean RFM scores across customer segments. Higher score signifies more recent, frequent, and valuable customer interactions"
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "average [Rfm Score]"
+      answer_columns:
+      - name: Average Rfm Score
+      table:
+        table_columns:
+        - column_id: Average Rfm Score
+          show_headline: false
+        ordered_column_ids:
+        - Average Rfm Score
+        client_state: ""
+      chart:
+        type: KPI
+        chart_columns:
+        - column_id: Average Rfm Score
+        axis_configs:
+        - "y":
+          - Average Rfm Score
+        client_state: ""
+      display_mode: CHART_MODE
+    viz_guid: f39e77b1-f7a1-4da9-8a3e-282645a49704
+  - id: Viz_15
+    answer:
+      name: Average Credit Score
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "average [Credit Score]"
+      answer_columns:
+      - name: Average Credit Score
+      table:
+        table_columns:
+        - column_id: Average Credit Score
+          show_headline: false
+        ordered_column_ids:
+        - Average Credit Score
+        client_state: ""
+      chart:
+        type: KPI
+        chart_columns:
+        - column_id: Average Credit Score
+        axis_configs:
+        - "y":
+          - Average Credit Score
+        client_state: ""
+      display_mode: CHART_MODE
+    viz_guid: d45e212e-ac92-4ee0-9080-e6c6012522a4
+  - id: Viz_16
+    answer:
+      name: Average Recency
+      description: Illustrates average time since last purchase
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "average [Recency]"
+      answer_columns:
+      - name: Average Recency
+      table:
+        table_columns:
+        - column_id: Average Recency
+          show_headline: false
+        ordered_column_ids:
+        - Average Recency
+        client_state: ""
+      chart:
+        type: KPI
+        chart_columns:
+        - column_id: Average Recency
+        axis_configs:
+        - "y":
+          - Average Recency
+        client_state: ""
+      display_mode: CHART_MODE
+    viz_guid: 76132af1-7645-434a-99c9-126611052b7f
+  - id: Viz_17
+    answer:
+      name: Average Monetary
+      description: Illustrates average transaction amount
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "average [Monetary]"
+      answer_columns:
+      - name: Average Monetary
+      table:
+        table_columns:
+        - column_id: Average Monetary
+          show_headline: false
+        ordered_column_ids:
+        - Average Monetary
+        client_state: ""
+      chart:
+        type: KPI
+        chart_columns:
+        - column_id: Average Monetary
+        axis_configs:
+        - "y":
+          - Average Monetary
+        client_state: ""
+      display_mode: CHART_MODE
+    viz_guid: 34f41547-8c5c-45af-b586-e470a118197a
+  - id: Viz_18
+    answer:
+      name: Customer Segment
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "[Customer Segment]"
+      answer_columns:
+      - name: Customer Segment
+      table:
+        table_columns:
+        - column_id: Customer Segment
+          show_headline: false
+        ordered_column_ids:
+        - Customer Segment
+        client_state: ""
+      chart:
+        type: KPI
+        chart_columns:
+        - column_id: Customer Segment
+        axis_configs:
+        - "y":
+          - Customer Segment
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"chartSpecific\": {\"pivotSummariesState\": {}}},\"columnProperties\": [{\"columnId\": \"Customer Segment\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"812b6593-7b3d-4643-8d23-6c6b391fc2b2\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Customer Segment\"],\"isOpposite\": false}},{\"id\": \"18a0a65c-2e63-4a87-8ca4-de7757049fc5\",\"properties\": {\"axisType\": \"X\"}}]}"
+      display_mode: CHART_MODE
+    viz_guid: d82572df-6952-46bb-bd01-2fb7d2ca887a
+  - id: Viz_19
+    answer:
+      name: Customer Segment Distribution
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "[Customer Segment] count [Customer Name]"
+      answer_columns:
+      - name: Customer Segment
+      - name: Number of Customer Name
+      table:
+        table_columns:
+        - column_id: Customer Segment
+          show_headline: false
+        - column_id: Number of Customer Name
+          show_headline: false
+        ordered_column_ids:
+        - Customer Segment
+        - Number of Customer Name
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: PIE
+        chart_columns:
+        - column_id: Customer Segment
+        - column_id: Number of Customer Name
+        axis_configs:
+        - x:
+          - Customer Segment
+          "y":
+          - Number of Customer Name
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"chartSpecific\": {\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Customer Segment\",\"columnProperty\": {}},{\"columnId\": \"Number of Customer Name\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"6a1cac05-d69a-491d-84c7-cb64513175a8\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Number of Customer Name\"],\"isOpposite\": false}},{\"id\": \"bb21e28d-408c-4404-a9f9-15d591a48e79\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Customer Segment\"]}}],\"systemSeriesColors\": [{\"serieName\": \"high value customer\",\"color\": \"#06BF7F\"},{\"serieName\": \"low value customers\",\"color\": \"#FCC838\"},{\"serieName\": \"medium value customer\",\"color\": \"#48D1E0\"},{\"serieName\": \"top customers\",\"color\": \"#369faa\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 0fbbba7a-289f-463b-b905-5b8ec3ef8ec2
+  - id: Viz_20
+    answer:
+      name: Total Number of Customers
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "count [Customer Name]"
+      answer_columns:
+      - name: Number of Customer Name
+      table:
+        table_columns:
+        - column_id: Number of Customer Name
+          show_headline: false
+        ordered_column_ids:
+        - Number of Customer Name
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: KPI
+        chart_columns:
+        - column_id: Number of Customer Name
+        axis_configs:
+        - "y":
+          - Number of Customer Name
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"chartSpecific\": {\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"99619ccd-1679-47e3-9958-917b5057aa36\",\"columnProperty\": {}},{\"columnId\": \"Number of Customer Name\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"6a1cac05-d69a-491d-84c7-cb64513175a8\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Number of Customer Name\"],\"isOpposite\": false}},{\"id\": \"bb21e28d-408c-4404-a9f9-15d591a48e79\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"99619ccd-1679-47e3-9958-917b5057aa36\"]}}],\"systemSeriesColors\": [{\"serieName\": \"high value customer\",\"color\": \"#06BF7F\"},{\"serieName\": \"low value customers\",\"color\": \"#FCC838\"},{\"serieName\": \"medium value customer\",\"color\": \"#48D1E0\"},{\"serieName\": \"top customers\",\"color\": \"#369faa\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: eb5cbca3-5f9b-4e8d-adb7-70e7aa5512ea
+  - id: Viz_21
+    answer:
+      name: Total Number of Transactions
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "count [Transactionamount] [Date] [Date].daily"
+      answer_columns:
+      - name: Number of Transactionamount
+      - name: Day(Date)
+      table:
+        table_columns:
+        - column_id: Day(Date)
+          show_headline: false
+        - column_id: Number of Transactionamount
+          show_headline: false
+        ordered_column_ids:
+        - Day(Date)
+        - Number of Transactionamount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: KPI
+        chart_columns:
+        - column_id: Day(Date)
+        - column_id: Number of Transactionamount
+        axis_configs:
+        - x:
+          - Day(Date)
+          "y":
+          - Number of Transactionamount
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Number of Transactionamount\",\"columnProperty\": {}},{\"columnId\": \"Day(Date)\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"bfa7935b-a3b9-44b6-93ee-34977a9e2c0c\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Number of Transactionamount\"],\"isOpposite\": false}},{\"id\": \"5b2c5d02-b981-46d5-8598-349e1ebbbcde\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Day(Date)\"]}}],\"systemSeriesColors\": [{\"serieName\": \"Number of Transactionamount\",\"color\": \"#2770ef\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 8d2852ca-8f50-4600-aadf-2405f834c3a5
+  - id: Viz_22
+    answer:
+      name: Total Transaction Amount
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "[Transactionamount] [Date] [Date].daily"
+      answer_columns:
+      - name: Total Transactionamount
+        format:
+          category: CURRENCY
+          currencyFormatConfig:
+            locale: USD
+            unit: AUTO
+            decimals: 2.0
+            toSeparateThousands: true
+          isCategoryEditable: true
+      - name: Day(Date)
+      table:
+        table_columns:
+        - column_id: Day(Date)
+          show_headline: false
+        - column_id: Total Transactionamount
+          show_headline: false
+        ordered_column_ids:
+        - Day(Date)
+        - Total Transactionamount
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: KPI
+        chart_columns:
+        - column_id: Day(Date)
+        - column_id: Total Transactionamount
+        axis_configs:
+        - x:
+          - Day(Date)
+          "y":
+          - Total Transactionamount
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Total Transactionamount\",\"columnProperty\": {}},{\"columnId\": \"Day(Date)\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"1d8c0e04-6844-47d0-b4a8-de6770af8069\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total Transactionamount\"],\"isOpposite\": false}},{\"id\": \"a1ca6f9a-a4d9-44fd-a19e-0936cdeea448\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Day(Date)\"]}}],\"systemSeriesColors\": [{\"serieName\": \"Total Transactionamount\",\"color\": \"#2770ef\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 641b879e-5718-4e1e-aeb0-5bddfc357b2c
+  - id: Viz_23
+    answer:
+      name: Customer Distribution by Product
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "count [Customer Id] [Account Type]"
+      answer_columns:
+      - name: Number of Customer Id
+      - name: Account Type
+      table:
+        table_columns:
+        - column_id: Account Type
+          show_headline: false
+        - column_id: Number of Customer Id
+          show_headline: false
+        ordered_column_ids:
+        - Account Type
+        - Number of Customer Id
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: COLUMN
+        chart_columns:
+        - column_id: Account Type
+        - column_id: Number of Customer Id
+        axis_configs:
+        - x:
+          - Account Type
+          "y":
+          - Number of Customer Id
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Account Type\",\"columnProperty\": {}},{\"columnId\": \"Number of Customer Id\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"45757148-4e87-4ff5-bfda-20c0b4824e87\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Account Type\"]}},{\"id\": \"93070af6-b3ee-4612-8a1c-fee23da29687\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Number of Customer Id\"],\"name\": \"Customer Count\",\"isOpposite\": false}}],\"systemSeriesColors\": [{\"serieName\": \"Number of Customer Id\",\"color\": \"#8C62F5\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 8f782014-5815-4c8d-9416-4982bbd58d60
+  - id: Viz_24
+    answer:
+      name: State-wise Average Savings Balances Overview
+      description: Chart showcases the average savings balance across different states
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "[Account Type] average [Balance] [State] [Account Type].Savings"
+      answer_columns:
+      - name: Account Type
+      - name: Average Balance
+        format:
+          category: CURRENCY
+          currencyFormatConfig:
+            locale: USD
+            unit: AUTO
+            decimals: 2.0
+            toSeparateThousands: true
+          isCategoryEditable: true
+      - name: State
+      table:
+        table_columns:
+        - column_id: Account Type
+          show_headline: false
+        - column_id: State
+          show_headline: false
+        - column_id: Average Balance
+          show_headline: false
+        ordered_column_ids:
+        - Account Type
+        - State
+        - Average Balance
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: STACKED_COLUMN
+        chart_columns:
+        - column_id: Account Type
+        - column_id: State
+        - column_id: Average Balance
+        axis_configs:
+        - x:
+          - State
+          "y":
+          - Average Balance
+          color:
+          - Account Type
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}},\"showStackedLabels\": true,\"allLabels\": true},\"columnProperties\": [{\"columnId\": \"Account Type\",\"columnProperty\": {}},{\"columnId\": \"State\",\"columnProperty\": {}},{\"columnId\": \"Average Balance\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"bc875160-0786-41ab-b546-60d5180620ac\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Average Balance\"],\"isOpposite\": false}},{\"id\": \"4fdcbadb-996b-42a8-9b61-7fd8490086f2\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"State\"]}}],\"systemSeriesColors\": [{\"serieName\": \"checking\",\"color\": \"#06BF7F\"},{\"serieName\": \"credit card (advantage)\",\"color\": \"#FCC838\"},{\"serieName\": \"credit card (platinum)\",\"color\": \"#82DFE9\"},{\"serieName\": \"ira\",\"color\": \"#48D1E0\"},{\"serieName\": \"mortgage loan\",\"color\": \"#5eb2bb\"},{\"serieName\": \"savings\",\"color\": \"#369faa\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: 5adba744-58d8-4f8e-bf9a-78c87adba996
+  - id: Viz_25
+    viz_guid: 8e3b97be-cc5b-41fe-92ab-963d3b714ecc
+    note_tile:
+      html_parsed_string: "<p class=\"theme-module__editor-paragraph\"><br></p><p class=\"theme-module__editor-paragraph\" dir=\"ltr\"><b><strong class=\"theme-module__editor-text-bold\">Big Spenders</strong></b><span>: High RFM scores, indicating significant monetary contributions.</span></p><p class=\"theme-module__editor-paragraph\"><br></p><p class=\"theme-module__editor-paragraph\" dir=\"ltr\"><b><strong class=\"theme-module__editor-text-bold\">Active Regulars</strong></b><span>: Moderately high RFM scores, reflecting recent transactions and frequent engagement.</span></p><p class=\"theme-module__editor-paragraph\"><br></p><p class=\"theme-module__editor-paragraph\" dir=\"ltr\"><b><strong class=\"theme-module__editor-text-bold\">Valued Customers</strong></b><span>: Moderate RFM scores, showcasing consistent and valued contributions.</span></p><p class=\"theme-module__editor-paragraph\"><br></p><p class=\"theme-module__editor-paragraph\" dir=\"ltr\"><b><strong class=\"theme-module__editor-text-bold\">Engaged Explorers</strong></b><span>: Lower RFM scores, balancing recent transactions and exploration in buying behaviour.</span></p>"
+  - id: Viz_26
+    answer:
+      name: State-wise Percentage Growth in Savings Balances
+      description: Chart illustrates the percentage growth in savings balances for different states
+      tables:
+      - id: Loyalty Classification
+        name: Loyalty Classification
+      search_query: "[percentage growth savings balance] [State]"
+      answer_columns:
+      - name: percentage growth savings balance
+        format:
+          category: PERCENTAGE
+          percentageFormatConfig:
+            decimals: 2.0
+          isCategoryEditable: true
+      - name: State
+      table:
+        table_columns:
+        - column_id: State
+          show_headline: false
+        - column_id: percentage growth savings balance
+          show_headline: false
+        ordered_column_ids:
+        - State
+        - percentage growth savings balance
+        client_state: ""
+        client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+      chart:
+        type: COLUMN
+        chart_columns:
+        - column_id: State
+        - column_id: percentage growth savings balance
+        axis_configs:
+        - x:
+          - State
+          "y":
+          - percentage growth savings balance
+        client_state: ""
+        client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}}},\"columnProperties\": [{\"columnId\": \"State\",\"columnProperty\": {}},{\"columnId\": \"percentage growth savings balance\",\"columnProperty\": {\"dataLabels\": true}}],\"axisProperties\": [{\"id\": \"8e34ea05-fc96-4962-ab95-4a2c5de230bf\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"State\"]}},{\"id\": \"feded5ef-89b4-43c5-9d85-ec9cb6a6ea49\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"percentage growth savings balance\"],\"name\": \"Percentage Growth in Savings Balance\",\"isOpposite\": false}}],\"systemSeriesColors\": [{\"serieName\": \"percentage growth savings balance\",\"color\": \"#FF8142\"}]}"
+      display_mode: CHART_MODE
+    viz_guid: aa76ae08-73cd-45a8-bb7e-1e937c50b790
+  filters:
+  - column:
+    - Customer Segment
+    excluded_visualizations:
+    - Viz_5
+    - Viz_4
+    - Viz_7
+    - Viz_6
+    - Viz_1
+    - Viz_3
+    - Viz_2
+    is_mandatory: false
+    is_single_value: true
+    display_name: ""
+  layout:
+    tabs:
+    - name: Transaction and Customer Segmentation
+      description: ""
+      tiles:
+      - visualization_id: Viz_1
+        x: 6
+        "y": 4
+        height: 6
+        width: 6
+      - visualization_id: Viz_2
+        x: 0
+        "y": 10
+        height: 8
+        width: 6
+      - visualization_id: Viz_3
+        x: 6
+        "y": 10
+        height: 8
+        width: 6
+      - visualization_id: Viz_4
+        x: 0
+        "y": 18
+        height: 5
+        width: 12
+      - visualization_id: Viz_5
+        x: 0
+        "y": 28
+        height: 5
+        width: 12
+      - visualization_id: Viz_6
+        x: 0
+        "y": 23
+        height: 5
+        width: 12
+      - visualization_id: Viz_7
+        x: 0
+        "y": 33
+        height: 8
+        width: 6
+      - visualization_id: Viz_19
+        x: 0
+        "y": 4
+        height: 6
+        width: 6
+      - visualization_id: Viz_20
+        x: 0
+        "y": 0
+        height: 4
+        width: 3
+      - visualization_id: Viz_21
+        x: 6
+        "y": 0
+        height: 4
+        width: 3
+      - visualization_id: Viz_22
+        x: 3
+        "y": 0
+        height: 4
+        width: 3
+      - visualization_id: Viz_23
+        x: 6
+        "y": 33
+        height: 8
+        width: 6
+      - visualization_id: Viz_24
+        x: 0
+        "y": 46
+        height: 5
+        width: 12
+      - visualization_id: Viz_25
+        x: 9
+        "y": 0
+        height: 4
+        width: 3
+      - visualization_id: Viz_26
+        x: 0
+        "y": 41
+        height: 5
+        width: 12
+    - name: Customer Groups Insights Tab
+      description: ""
+      tiles:
+      - visualization_id: Viz_8
+        x: 0
+        "y": 2
+        height: 2
+        width: 3
+      - visualization_id: Viz_9
+        x: 9
+        "y": 0
+        height: 2
+        width: 3
+      - visualization_id: Viz_10
+        x: 3
+        "y": 2
+        height: 4
+        width: 3
+      - visualization_id: Viz_11
+        x: 0
+        "y": 6
+        height: 4
+        width: 6
+      - visualization_id: Viz_12
+        x: 6
+        "y": 4
+        height: 6
+        width: 6
+      - visualization_id: Viz_13
+        x: 0
+        "y": 10
+        height: 4
+        width: 12
+      - visualization_id: Viz_14
+        x: 6
+        "y": 0
+        height: 2
+        width: 3
+      - visualization_id: Viz_15
+        x: 0
+        "y": 4
+        height: 2
+        width: 3
+      - visualization_id: Viz_16
+        x: 6
+        "y": 2
+        height: 2
+        width: 3
+      - visualization_id: Viz_17
+        x: 9
+        "y": 2
+        height: 2
+        width: 3
+      - visualization_id: Viz_18
+        x: 0
+        "y": 0
+        height: 2
+        width: 6

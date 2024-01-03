@@ -1,0 +1,312 @@
+guid: 74ddecd7-f06b-4681-98f1-4e1876e30cf5
+worksheet:
+  name: Loyalty Classification
+  tables:
+  - name: DIM_RB_ACCOUNTS
+  - name: FACT_RB_SAVINGS
+  - name: RFM_BASED_CUSTOMER_SEGMENTATION
+  joins:
+  - name: RFM_BASED_CUSTOMER_SEGMENTATION_to_DIM_RB_ACCOUNTS
+    source: DIM_RB_ACCOUNTS
+    destination: RFM_BASED_CUSTOMER_SEGMENTATION
+    type: INNER
+    is_one_to_one: false
+  - name: FACT_RB_SAVINGS_to_DIM_RB_ACCOUNTS
+    source: FACT_RB_SAVINGS
+    destination: DIM_RB_ACCOUNTS
+    type: INNER
+    is_one_to_one: false
+  table_paths:
+  - id: DIM_RB_ACCOUNTS_1
+    table: DIM_RB_ACCOUNTS
+    join_path:
+    - join:
+      - FACT_RB_SAVINGS_to_DIM_RB_ACCOUNTS
+  - id: FACT_RB_SAVINGS_1
+    table: FACT_RB_SAVINGS
+    join_path:
+    - {}
+  - id: RFM_BASED_CUSTOMER_SEGMENTATION_1
+    table: RFM_BASED_CUSTOMER_SEGMENTATION
+    join_path:
+    - join:
+      - FACT_RB_SAVINGS_to_DIM_RB_ACCOUNTS
+      - RFM_BASED_CUSTOMER_SEGMENTATION_to_DIM_RB_ACCOUNTS
+  formulas:
+  - name: Date
+    expr: "add_days ( [RFM_BASED_CUSTOMER_SEGMENTATION_1::TransactionDate] , diff_days ( today ( ) , 09/30/2023 ) )"
+    was_auto_generated: false
+  - name: Income group
+    expr: "if ( [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] <= 10000 ) then \"0-10k\" else if ( [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] > 10000 and [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] <= 20000 ) then \"10k-20k\" else \"20k+\""
+    was_auto_generated: false
+  - name: Income_grp
+    expr: "if ( [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] <= 10000 ) then 10000 else if ( [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] > 10000 and [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] <= 20000 ) then 20000 else if ( [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] > 20000 and [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] <= 30000 ) then 30000 else if ( [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] > 30000 and [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] <= 40000 ) then 40000 else if ( [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] > 40000 and [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] <= 50000 ) then 50000 else if ( [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] > 50000 and [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] <= 75000 ) then 75000 else if ( [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] > 75000 and [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] <= 100000 ) then 100000 else if ( [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] > 100000 and [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] <= 150000 ) then 150000 else if ( [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] > 150000 and [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] <= 200000 ) then 200000 else if ( [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] > 200000 and [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] <= 250000 ) then 250000 else if ( [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] > 250000 and [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] <= 300000 ) then 300000 else if ( [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] > 300000 and [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] <= 350000 ) then 350000 else if ( [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] > 350000 and [RFM_BASED_CUSTOMER_SEGMENTATION_1::income] <= 400000 ) then 400000 else 500000"
+    was_auto_generated: false
+  - name: percentage growth savings balance
+    expr: "( [average_present_savings_balance] - [average_previous_savings_balance] ) / [average_previous_savings_balance]"
+    was_auto_generated: false
+  - name: average_present_savings_balance
+    expr: "average_if ( [FACT_RB_SAVINGS_1::record_date] >= 07/01/2019 , [FACT_RB_SAVINGS_1::balance] )"
+    was_auto_generated: false
+  - name: average_previous_savings_balance
+    expr: "average_if ( [FACT_RB_SAVINGS_1::record_date] <= 06/30/2019 , [FACT_RB_SAVINGS_1::balance] )"
+    was_auto_generated: false
+  worksheet_columns:
+  - name: Customer Id
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::customer_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Customer Name
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::customer_name
+    properties:
+      column_type: ATTRIBUTE
+  - name: Gender
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::gender
+    properties:
+      column_type: ATTRIBUTE
+  - name: Age Group
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::age_group
+    properties:
+      column_type: ATTRIBUTE
+  - name: City
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::city
+    properties:
+      column_type: ATTRIBUTE
+  - name: State
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::state
+    properties:
+      column_type: ATTRIBUTE
+  - name: Zipcode
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::zipcode
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: County
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::county
+    properties:
+      column_type: ATTRIBUTE
+  - name: Region
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::region
+    properties:
+      column_type: ATTRIBUTE
+  - name: Income
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::income
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Product Count
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::product_count
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Credit Score
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::credit_score
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+      synonyms:
+      - Creditworthiness
+      - Credit Rating
+      synonym_type: AUTO_GENERATED
+  - name: Transactionid
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::TransactionID
+    properties:
+      column_type: ATTRIBUTE
+  - name: Transactiondate
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::TransactionDate
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Transactiontime
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::TransactionTime
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Transactionamount
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::TransactionAmount
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Clusters
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::clusters
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Transactiondatetime
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::TransactionDateTime
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Total
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::Total
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Recency
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::Recency
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Frequency
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::Frequency
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Monetary
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::Monetary
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: R Rank Norm
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::R_rank_norm
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: F Rank Norm
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::F_rank_norm
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: M Rank Norm
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::M_rank_norm
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+      synonyms:
+      - Grade Level
+      - Classification Level
+      synonym_type: AUTO_GENERATED
+  - name: Rfm Score
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::RFM_Score
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Customer Segment
+    column_id: RFM_BASED_CUSTOMER_SEGMENTATION_1::Customer_segment
+    properties:
+      column_type: ATTRIBUTE
+  - name: Income group
+    formula_id: Income group
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      synonyms:
+      - Income Range
+      - Income Bracket
+      synonym_type: AUTO_GENERATED
+  - name: Income_grp
+    formula_id: Income_grp
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      synonyms:
+      - Income Category
+      synonym_type: AUTO_GENERATED
+  - name: Account Id
+    column_id: DIM_RB_ACCOUNTS_1::account_id
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Account Number
+      synonym_type: AUTO_GENERATED
+  - name: Account Type
+    column_id: DIM_RB_ACCOUNTS_1::account_type
+    properties:
+      column_type: ATTRIBUTE
+      synonyms:
+      - Account Category
+      - Account Group
+      synonym_type: AUTO_GENERATED
+  - name: Balance
+    column_id: DIM_RB_ACCOUNTS_1::balance
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+      synonyms:
+      - Equilibrium
+      - Equity
+      synonym_type: AUTO_GENERATED
+  - name: Record Id
+    column_id: FACT_RB_SAVINGS_1::record_id
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+      synonyms:
+      - Record Number
+      synonym_type: AUTO_GENERATED
+  - name: Record Date
+    column_id: FACT_RB_SAVINGS_1::record_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      synonyms:
+      - Date
+      - Day
+      synonym_type: AUTO_GENERATED
+  - name: Balance Savings
+    column_id: FACT_RB_SAVINGS_1::balance
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+      synonyms:
+      - Balance Reserve
+      - Balance Reserve Amount
+      synonym_type: AUTO_GENERATED
+  - name: average_previous_savings_balance
+    formula_id: average_previous_savings_balance
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+      synonyms:
+      - Average Previous Savings Amount
+      - Average Previous Savings Quantity
+      synonym_type: AUTO_GENERATED
+  - name: average_present_savings_balance
+    formula_id: average_present_savings_balance
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+      synonyms:
+      - Current Savings Balance
+      - Present Savings Balance
+      synonym_type: AUTO_GENERATED
+  - name: percentage growth savings balance
+    formula_id: percentage growth savings balance
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+      synonyms:
+      - Percentage Growth Savings Amount
+      - Percentage Growth Savings Quantity
+      synonym_type: AUTO_GENERATED
+  - name: Date
+    formula_id: Date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      synonym_type: AUTO_GENERATED
+  properties:
+    is_bypass_rls: false
+    join_progressive: true
