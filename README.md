@@ -1,7 +1,4 @@
-# Loyalty-classification
-Loyalty classification / customer segmentation using Snowflake snowpark and Thoughtspot
-
-# Customer Segmentation and RFM Analysis with Snowflake and ThoughtSpot
+# Loyalty-classification and RFM Analysis with Snowflake and ThoughtSpot
 
 ## Introduction
 
