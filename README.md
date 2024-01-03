@@ -15,9 +15,9 @@ We begin by establishing a connection to the Snowflake database using Snowpark P
 
 To kickstart our analysis, we meticulously select Retail Banking data and Customer Transaction data. These datasets form the foundation for our exploration into customer behavior and loyalty.
 
-<img src = "images/Account_types.png" width = 400 height = 300 > 
+<img src = "images/Account_types.png" width = 500 height = 500 > 
 
-<img src = "images/credit_score.png" > 
+<img src = "images/credit_score.png" width = 500 height = 500> 
 
 ### Data Preparation
 
@@ -30,18 +30,18 @@ We embark on a process of cleaning and preparing the data, ensuring it's suitabl
 
 Utilizing Snowflake Snowpark Python, we implement a robust loyalty classification algorithm. This algorithm assesses customer behavior, identifying patterns that help categorize customers into loyalty segments.
 
-<img src = "images/Elbow_chart.png" width = 400 height = 300> 
+<img src = "images/Elbow_chart.png" width = 500 height = 500> 
 
 we employ a KMeans Clustering model to perform loyalty classification. To identify the optimal number of clusters, we evaluate inertias and leverage the elbow curve. The subsequent application of KMeans clustering unveils distinct customer segments based on their behaviors and interactions with the bank.
 
-<img src = "images/customer_segmentation.png" width = 400 height = 300> 
+<img src = "images/customer_segmentation.png" width = 500 height = 500> 
 
 
 ### RFM Analysis
 
 Taking our analysis a step further, we meticulously evaluate the Recency, Frequency, and Monetary aspects of customer transactions. This analysis not only provides a snapshot of current customer engagement but also serves as a foundation for personalized and effective customer engagement strategies.
 
-<img src = "images/RFM_score.png" > 
+<img src = "images/RFM_score.png" width = 500 height = 500> 
 
 ### Visualization with ThoughtSpot
 
