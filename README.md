@@ -1,7 +1,5 @@
 # Loyalty-classification and RFM Analysis with Snowflake and ThoughtSpot
 
-## Introduction
-
 Customer segmentation and loyalty classification play a crucial role in understanding and optimizing customer relationships. In this project, we leverage Banking and Transaction data to perform loyalty classification and RFM (Recency, Frequency, Monetary) analysis. The entire process is implemented using Snowflake Snowpark Python, and the results are visualized using ThoughtSpot.
 
 ## Overview
@@ -10,38 +8,61 @@ This repository contains the codebase for conducting loyalty classification and 
 
 ## Approach
 
-### 1. Data Preparation
+### Connection Establishment
+We begin by establishing a connection to the Snowflake database using Snowpark Python.
 
-We begin by cleaning and preparing the data, ensuring it's suitable for analysis. This step includes handling missing values, standardizing formats, and organizing the data for subsequent stages.
+### Data Selection
 
-### 2. Loyalty Classification
+To kickstart our analysis, we meticulously select Retail Banking data and Customer Transaction data. These datasets form the foundation for our exploration into customer behavior and loyalty.
+
+<img src = "images/customer_interactions_forecast.png" > account types
+
+<img src = "images/customer_interactions_forecast.png" > credit score
+
+### Data Preparation
+
+We embark on a process of cleaning and preparing the data, ensuring it's suitable for analysis. This step includes handling missing values, standardizing formats, merging various account data of each customer with transaction data, creating a comprehensive dataset of the customer's banking interactions.
+
+<img src = "images/customer_interactions_forecast.png" > trans amt trnd
+
+
+### Loyalty Classification
 
 Utilizing Snowflake Snowpark Python, we implement a robust loyalty classification algorithm. This algorithm assesses customer behavior, identifying patterns that help categorize customers into loyalty segments.
 
-### 3. RFM Analysis
+<img src = "images/customer_interactions_forecast.png" > elbow
 
-The RFM analysis involves evaluating three key aspects: Recency, Frequency, and Monetary value of customer transactions. This information is crucial for understanding customer engagement and tailoring strategies accordingly.
+we employ a KMeans Clustering model to perform loyalty classification. To identify the optimal number of clusters, we evaluate inertias and leverage the elbow curve. The subsequent application of KMeans clustering unveils distinct customer segments based on their behaviors and interactions with the bank.
 
-### 4. Visualization with ThoughtSpot
+<img src = "images/customer_interactions_forecast.png" > customer seg
 
-To make the results accessible and actionable, we leverage ThoughtSpot for visualization. We establish a live Snowflake connection on ThoughtSpot, creating worksheets using Snowflake tables. Additionally, we develop a liveboard on ThoughtSpot to dynamically visualize and interact with the loyalty classification and RFM analysis results.
+
+### RFM Analysis
+
+Taking our analysis a step further, we meticulously evaluate the Recency, Frequency, and Monetary aspects of customer transactions. This analysis not only provides a snapshot of current customer engagement but also serves as a foundation for personalized and effective customer engagement strategies.
+
+<img src = "images/customer_interactions_forecast.png" > rfm score
+
+### Visualization with ThoughtSpot
+
+To make the results accessible and actionable, we leverage ThoughtSpot for visualization. We establish a live Snowflake connection on ThoughtSpot and create worksheets using Snowflake tables. We then develop a liveboard on ThoughtSpot to dynamically visualize and interact with the loyalty classification and RFM analysis results.
 
 ## Results
 
 The results of this analysis provide comprehensive insights into customer behavior, enabling data-driven decision-making for marketing, engagement, and loyalty strategies. The visualizations in ThoughtSpot enhance the interpretability of the findings, making it accessible for various stakeholders.
 
-## Sample Visualizations
+With SpotIQ change analysis, we can compare any two data points in a visualization for change and identify key change drivers from the underlying attribute columns. 
+
+<img src = "images/customer_interactions_forecast.png" > chnge
 
 ### Loyalty Classification Distribution
 
 ![Loyalty Distribution](path/to/loyalty_distribution_chart.png)
 
-### RFM Analysis Heatmap
-
-![RFM Analysis Heatmap](path/to/rfm_analysis_heatmap_chart.png)
 
 For a detailed guide on executing the analysis and reproducing the results, please refer to the code and documentation in this repository.
 
----
+## Guide to use .tml files
+For step-by-step instructions on how to import .tml files into your ThoughtSpot cluster please refer [How to use TML files](https://docs.thoughtspot.com/cloud/latest/scriptability#_how_to_use_tml_files)
 
 **Note:** Ensure that you have the necessary credentials and permissions for Snowflake and ThoughtSpot to execute this analysis successfully.
