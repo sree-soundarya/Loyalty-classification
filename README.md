@@ -1,4 +1,4 @@
-# Loyalty-classification and RFM Analysis with Snowflake and ThoughtSpot
+# Loyalty-classification and RFM Analysis 
 
 Customer segmentation and loyalty classification play a crucial role in understanding and optimizing customer relationships. In this project, we leverage Banking and Transaction data to perform loyalty classification and RFM (Recency, Frequency, Monetary) analysis. The entire process is implemented using Snowflake Snowpark Python, and the results are visualized using ThoughtSpot.
 
@@ -15,7 +15,7 @@ We begin by establishing a connection to the Snowflake database using Snowpark P
 
 To kickstart our analysis, we meticulously select Retail Banking data and Customer Transaction data. These datasets form the foundation for our exploration into customer behavior and loyalty.
 
-<img src = "images/Account_types.png" > 
+<img src = "images/Account_types.png" width = 400 height = 300 > 
 
 <img src = "images/credit_score.png" > 
 
@@ -30,11 +30,11 @@ We embark on a process of cleaning and preparing the data, ensuring it's suitabl
 
 Utilizing Snowflake Snowpark Python, we implement a robust loyalty classification algorithm. This algorithm assesses customer behavior, identifying patterns that help categorize customers into loyalty segments.
 
-<img src = "images/Elbow_chart.png" > 
+<img src = "images/Elbow_chart.png" width = 400 height = 300> 
 
 we employ a KMeans Clustering model to perform loyalty classification. To identify the optimal number of clusters, we evaluate inertias and leverage the elbow curve. The subsequent application of KMeans clustering unveils distinct customer segments based on their behaviors and interactions with the bank.
 
-<img src = "images/customer_segmentation.png" > 
+<img src = "images/customer_segmentation.png" width = 400 height = 300> 
 
 
 ### RFM Analysis
